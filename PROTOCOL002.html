@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 2: Shin-Safe Protocol - Gotham Edition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        /* Gotham Dark Knight Theme - No Tailwind */
+
+        /* --- Base & Theme --- */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0c0c0c; /* Deepest almost black */
+            color: #d1d5db; /* Desaturated light grey for main text */
+            padding: 1rem;
+        }
+
+        .protocol-card {
+            background-color: #1a1a1a; /* Dark grey for cards */
+            border: 1px solid #333333; /* Subtle dark border */
+            border-radius: 6px; /* Slightly sharper corners */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); /* Deeper, more intense shadow */
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            padding: 1.5rem;
+        }
+        .protocol-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.9); /* Darker, more intense shadow on hover */
+        }
+        .accent-text {
+            color: #6b7280; /* Muted steel blue/grey */
+        }
+        .hero-accent-text {
+            color: #b1b5bd; /* Slightly brighter for hero text */
+        }
+        .accent-border {
+            border-left: 4px solid #4a5568; /* Darker, desaturated blue-grey border */
+        }
+        .nightwing-divider {
+            content: '';
+            display: block;
+            height: 1px; /* Thinner */
+            background: linear-gradient(to right, #4a5568, #1a1a1a); /* Fading dark blue-grey */
+            margin: 1rem 0;
+            clip-path: none; /* No geometric clip for grit */
+            border-bottom: 1px solid #2d3846; /* Subtle line for grit */
+        }
+
+        /* Utility classes */
+        .font-bold {
+            font-weight: 700;
+        }
+        .text-right {
+            text-align: right;
+        }
+
+        /* --- Header --- */
+        .header-main {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .header-box {
+            display: inline-block;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid #4a5568;
+            /* Using the intense black shadow */
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.8), 0 10px 10px -5px rgba(0, 0, 0, 0.8);
+        }
+        .header-title {
+            font-size: 1.875rem;
+            line-height: 2.25rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            text-transform: uppercase;
+        }
+        .header-title-span {
+            color: #ffffff;
+        }
+        .header-subtitle {
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            color: #9ca3af;
+            margin-top: 0.5rem;
+        }
+        .header-goal {
+            font-size: 0.75rem;
+            line-height: 1rem;
+            color: #6b7280;
+            margin-top: 0.25rem;
+        }
+
+        /* --- Main Alert Box --- */
+        .alert-box-main {
+            background-color: rgba(139, 92, 246, 0.1); /* Subtle dark violet for warnings */
+            border-left: 4px solid #8B5CF6; /* Dark violet */
+            color: #d1d5db; /* Ensure text is readable */
+            padding: 1rem;
+            margin-bottom: 2rem;
+            max-width: 56rem;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            text-align: center; /* Centered text */
+        }
+        .alert-box-title {
+            font-weight: 700;
+            font-size: 1.125rem;
+            line-height: 1.75rem;
+            display: flex;
+            align-items: center;
+            color: #8B5CF6; /* Dark violet for alert title */
+            justify-content: center; /* Centered title */
+        }
+        .alert-icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            margin-right: 0.75rem;
+        }
+        .alert-box-text {
+            color: #d1d5db;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            margin-top: 0.25rem;
+        }
+
+        /* --- Grid Layouts --- */
+        .grid-main, .grid-footer {
+            display: grid;
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+            gap: 1.5rem;
+            max-width: 72rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .grid-footer {
+            margin-top: 2.5rem;
+        }
+
+        /* --- Protocol Card Content --- */
+        .card-title {
+            font-size: 1.5rem;
+            line-height: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        .card-phase {
+            color: #9ca3af;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        .card-phase-margin {
+            margin-top: 1rem;
+        }
+        .card-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        /* Applies margin to list items after the first one */
+        .card-list > li + li {
+             margin-top: 0.5rem;
+        }
+        .card-list-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+        }
+        .alert-box-card {
+            background-color: rgba(139, 92, 246, 0.1);
+            border-left: 4px solid #8B5CF6;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border-radius: 0.375rem;
+            text-align: left; /* Keep card alerts left-aligned */
+        }
+        .alert-box-card p {
+            font-size: 0.75rem;
+            line-height: 1rem;
+            font-weight: 700;
+            color: #8B5CF6;
+            margin: 0;
+        }
+        .card-saturday {
+             background-color: rgba(26, 26, 26, 0.5);
+        }
+
+        /* --- Footer Cards --- */
+        .card-sunday {
+            text-align: center; /* Centered text */
+        }
+        .card-sunday-mandate {
+            color: #d1d5db;
+            font-size: 1.125rem;
+            line-height: 1.75rem;
+        }
+        .card-sunday-focus {
+            color: #9ca3af;
+            font-size: 1rem;
+            line-height: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        .card-debrief {
+            border-left: 4px solid #4b5563;
+            text-align: center; /* Centered text */
+        }
+        .card-title-debrief {
+            color: #d1d5db;
+        }
+        .debrief-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 1rem;
+            line-height: 1.5rem;
+            color: #d1d5db;
+        }
+        .debrief-list > li + li {
+            margin-top: 0.75rem;
+        }
+        .debrief-list-item {
+            /* Text is centered by parent */
+        }
+        .debrief-bullet {
+            margin-right: 0.75rem;
+            font-weight: 700;
+            font-size: 1.25rem;
+            line-height: 1; 
+            padding-top: 0.25rem; 
+        }
+
+        /* --- Responsive Media Queries --- */
+        @media (min-width: 768px) {
+            body {
+                padding: 2rem;
+            }
+            .header-title {
+                font-size: 3rem;
+                line-height: 1;
+            }
+            .header-subtitle {
+                font-size: 1.125rem;
+                line-height: 1.75rem;
+            }
+            .header-goal {
+                font-size: 0.875rem;
+                line-height: 1.25rem;
+            }
+            .grid-main {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .grid-main {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+            .grid-footer {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+            .card-sunday {
+                grid-column: span 1 / span 1;
+            }
+            .card-debrief {
+                grid-column: span 2 / span 2;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="header-main">
+        <div class="header-box">
+            <h1 class="header-title hero-accent-text">
+                <span class="header-title-span">Protocol 002:</span> Shin-Safe Mission
+            </h1>
+            <p class="header-subtitle">Week 2 Training Plan</p>
+            <p class="header-goal">Goal: Maintain Aerobic Base & Target 29:00 5K PB</p>
+        </div>
+    </header>
+
+    
+    <div class="alert-box-main">
+        <p class="alert-box-title">
+            <svg class="alert-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.398 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+            ATTENTION: SHIN-SAFE EDITION IN EFFECT
+        </p>
+        <p class="alert-box-text">Focus on low impact, controlled movement, and diligent pre/post-run care to prevent injury.</p>
+    </div>
+
+    
+    <div class="grid-main">
+
+        <div class="protocol-card accent-border">
+            <h2 class="card-title accent-text">
+                MONDAY:<br>HYBRID POWER
+            </h2>
+            <div class="nightwing-divider"></div>
+
+            <p class="card-phase">Phase 1: Mobility & Strength</p>
+            <ul class="card-list">
+                <li class="card-list-item">
+                    <span class="font-bold">Warm-up:</span> <span class="text-right">10--15 min Dynamic</span>
+                </li>
+                <li class="card-list-item">
+                    <span class="font-bold">Gym Focus:</span> <span class="text-right">Lower-Body/Knee Stability (RDLs, Step-ups)</span>
+                </li>
+            </ul>
+
+            <p class="card-phase card-phase-margin">Phase 2: Cross-Training</p>
+            <ul class="card-list">
+                <li class="card-list-item">
+                    <span class="font-bold">Rowing:</span> <span class="text-right">20 min Zone 2 (Steady)</span>
+                </li>
+                <li class="card-list-item">
+                    <span class="font-bold">Bike:</span> <span class="text-right">15 min Gentle Spin (90-95 rpm)</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="protocol-card accent-border">
+            <h2 class="card-title accent-text">
+                TUESDAY:<br>TEMPO EFFORT
+            </h2>
+            <div class="nightwing-divider"></div>
+
+            <div class="alert-box-card">
+                <p>WARNING: Check Shin Status. Rest/Cycle if tender.</p>
+            </div>
+
+            <p class="card-phase">Run Sequence: 4.5-5 km</p>
+            <ul class="card-list">
+                <li class="card-list-item">
+                    <span class="font-bold">Core Segment:</span> <span class="text-right hero-accent-text">3 km Tempo</span>
+                </li>
+                <li class="card-list-item">
+                    <span class="font-bold">Target Pace:</span> <span class="text-right">6:30-6:45/km</span>
+                </li>
+                <li class="card-list-item">
+                    <span class="font-bold">Post-Run:</span> <span class="text-right">Shin Rolling + Calf Stretch</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="protocol-card accent-border">
+            <h2 class="card-title accent-text">
+                WEDNESDAY:<br>RECHARGE
+            </h2>
+            <div class="nightwing-divider"></div>
+
+            <p class="card-phase">Mission: Full Recovery</p>
+            <ul class="card-list">
+                <li class="card-list-item">
+                    <span class="font-bold">Primary:</span> <span class="text-right">20--30 min Mobility or Yoga</span>
+                </li>
+                <li class="card-list-item">
+                    <span class="font-bold">Optional:</span> <span class="text-right">Short Walk</span>
+                </li>
+                <li class="card-list-item">
+                    <span class="font-bold" style="color: #8B5CF6;">If Tender:</span> <span class="text-right">Ice Massage Protocol</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="protocol-card accent-border">
+            <h2 class="card-title accent-text">
+                THURSDAY:<br>LONG ENDURANCE
+            </h2>
+            <div class="nightwing-divider"></div>
+
+            <p class="card-phase">Long Run</p>
+            <ul class="card-list">
+                <li class="card-list-item">
+                    <span class="font-bold">Distance:</span> <span class="text-right hero-accent-text">7.5-8 km</span>
+                </li>
+                <li class="card-list-item">
+                    <span class="font-bold">Pace Zone:</span> <span class="text-right">7:45-8:30/km (Easy)</span>
+                </li>
+                <li class="card-list-item">
+                    <span class="font-bold">Cadence Focus:</span> <span class="text-right">165-170 spm</span>
+                </li>
+                <li class="card-list-item">
+                    <span class="font-bold">Pre-Run:</span> <span class="text-right">Glute Bridges + Leg Swings</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="protocol-card accent-border">
+            <h2 class="card-title accent-text">
+                FRIDAY:<br>STABILITY BUILD
+            </h2>
+            <div class="nightwing-divider"></div>
+
+            <p class="card-phase">Lower Body & Core</p>
+            <ul class="card-list">
+                <li class="card-list-item">
+                    <span class="font-bold">Leg Press:</span> <span class="text-right">3x10 (Light)</span>
+                </li>
+                <li class="card-list-item">
+                    <span class="font-bold">Unilateral:</span> <span class="text-right">Single-Leg RDL</span>
+                </li>
+                <li class="card-list-item">
+                    <span class="font-bold">Core Focus:</span> <span class="text-right">Side Planks + Bird Dogs</span>
+                </li>
+                <li class="card-list-item">
+                    <span class="font-bold">Ankle Work:</span> <span class="text-right">Resistance Band Strengthening</span>
+                </li>
+                <li class="card-list-item">
+                    <span class="font-bold">Finish:</span> <span class="text-right">10-15 min Incline Walk</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="protocol-card accent-border card-saturday">
+            <h2 class="card-title accent-text">
+                SATURDAY:<br>5K PB ATTEMPT
+            </h2>
+            <div class="nightwing-divider"></div>
+
+            <p class="card-phase">Race Day Protocol</p>
+            <ul class="card-list">
+                <li class="card-list-item">
+                    <span class="font-bold">Target Time:</span> <span class="text-right hero-accent-text">29:00 (5:48/km)</span>
+                </li>
+                <li class="card-list-item">
+                    <span class="font-bold">Warm-up:</span> <span class="text-right">Walk, Jog, 3x30s Strides</span>
+                </li>
+                <li class="card-list-item">
+                    <span class="font-bold">Strategy:</span> <span class="text-right">Controlled start, strong finish</span>
+                </li>
+                <li class="card-list-item">
+                    <span class="font-bold">Post-Event:</span> <span class="text-right">10 min Walk + Foam Roll</span>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    
+    <div class="grid-footer">
+        <div class="protocol-card accent-border card-sunday">
+            <h2 class="card-title accent-text">
+                SUNDAY:<br>SYSTEM OFFLINE
+            </h2>
+            <div class="nightwing-divider"></div>
+            <p class="card-sunday-mandate">
+                <span class="font-bold">Mandate:</span> <strong>Rest / Active Recovery</strong>
+            </p>
+            <p class="card-sunday-focus">
+                <span class="font-bold">Focus:</span> Gentle walk, swim, or yoga only. Priority is hydration and total shin recovery.
+            </p>
+        </div>
+
+        <div class="protocol-card card-debrief">
+            <h2 class="card-title card-title-debrief">
+                POST-MISSION DEBRIEF
+            </h2>
+            <div class="nightwing-divider"></div>
+
+            <ul class="debrief-list">
+                <li class="debrief-list-item">
+                    <span class="debrief-bullet hero-accent-text">&gt;</span>
+                    <span>How did your <strong>shins feel</strong> after each run? (<em>Critical Metric</em>)</span>
+                </li>
+                <li class="debrief-list-item">
+                    <span class="debrief-bullet hero-accent-text">&gt;</span>
+                    <span>Did your pacing feel <strong>controlled</strong> on tempo and long runs?</span>
+                </li>
+                <li class="debrief-list-item">
+                    <span class="debrief-bullet hero-accent-text">&gt;</span>
+                    <span>What recovery or mobility habits <strong>helped most</strong> this week?</span>
+                </li>
+                <li class="debrief-list-item">
+                    <span class="debrief-bullet hero-accent-text">&gt;</span>
+                    <span>How was your <strong>energy</strong> before and after the 5K PB attempt?</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>
