@@ -3,242 +3,540 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Japan Itinerary 2025 - Cherry Blossom Edition</title>
+    <title>10k Race Week Taper Plan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
+        /* Gotham Dark Knight Theme - No Tailwind */
+
+        /* --- Base & Theme --- */
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            background-color: #fcf6f9; /* Light, subtle pinkish-white */
-            color: #333;
-            margin: 0;
-            padding: 20px;
+            font-family: 'Inter', sans-serif;
+            background-color: #0c0c0c; /* Deepest almost black */
+            color: #d1d5db; /* Desaturated light grey for main text */
+            padding: 1rem;
         }
-        .container {
-            max-width: 900px;
-            margin: 20px auto;
-            background-color: #ffffff;
-            border-radius: 12px; /* Slightly more rounded */
-            box-shadow: 0 6px 16px rgba(0,0,0,0.08); /* Stronger, softer shadow */
-            overflow: hidden;
-            border: 1px solid #ffe0e9; /* Light pink border */
+
+        .protocol-card {
+            background-color: #1a1a1a; /* Dark grey for cards */
+            border: 1px solid #333333; /* Subtle dark border */
+            border-radius: 6px; /* Slightly sharper corners */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); /* Deeper, more intense shadow */
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            padding: 1.5rem;
+            height: 100%; /* Makes cards in a grid row the same height */
         }
-        header {
-            background-color: #f7cac9; /* Soft cherry blossom pink */
-            color: #333; /* Darker text for contrast on light pink */
-            padding: 25px 40px;
+        .protocol-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.9); /* Darker, more intense shadow on hover */
+        }
+        .accent-text {
+            color: #6b7280; /* Muted steel blue/grey */
+        }
+        .hero-accent-text {
+            color: #b1b5bd; /* Slightly brighter for hero text */
+        }
+        .accent-border {
+            border-left: 4px solid #4a5568; /* Darker, desaturated blue-grey border */
+        }
+        .nightwing-divider {
+            content: '';
+            display: block;
+            height: 1px; /* Thinner */
+            background: linear-gradient(to right, #4a5568, #1a1a1a); /* Fading dark blue-grey */
+            margin: 1rem 0;
+            clip-path: none; /* No geometric clip for grit */
+            border-bottom: 1px solid #2d3846; /* Subtle line for grit */
+        }
+
+        /* Utility classes */
+        .font-bold {
+            font-weight: 700;
+        }
+        .text-violet {
+            color: #8B5CF6;
+        }
+        .text-red {
+             color: #F87171;
+        }
+
+        /* --- Header --- */
+        .header-main {
             text-align: center;
+            margin-bottom: 2.5rem;
         }
-        header h1 {
-            margin: 0;
-            font-size: 2.4em; /* Slightly larger */
-            letter-spacing: 1px;
-            text-shadow: 1px 1px 2px rgba(255,255,255,0.4); /* Subtle text shadow */
+        .header-box {
+            display: inline-block;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid #4a5568;
+            /* Using the intense black shadow */
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.8), 0 10px 10px -5px rgba(0, 0, 0, 0.8);
         }
-        .content {
-            padding: 30px 40px;
+        .header-title {
+            font-size: 1.875rem;
+            line-height: 2.25rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            text-transform: uppercase;
         }
-        h2 {
-            color: #d1507f; /* Deeper pink for headings */
-            border-bottom: 2px solid #f7cac9; /* Matching pink border */
-            padding-bottom: 12px;
-            margin-top: 35px;
-            font-size: 2em; /* Larger */
-            font-weight: bold;
+        .header-title-span {
+            color: #ffffff;
         }
-        h3 {
-            color: #8c4068; /* Plum-like color for subheadings */
-            margin-top: 25px;
-            font-size: 1.6em; /* Larger */
-            border-left: 4px solid #f7cac9; /* Pink accent */
-            padding-left: 10px;
+        .header-subtitle {
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            color: #9ca3af;
+            margin-top: 0.5rem;
         }
-        ul {
-            list-style-type: '🌸 '; /* Cherry blossom emoji as bullet point */
-            padding-left: 20px;
+
+        /* --- Main Info Box --- */
+        .info-box-main {
+            background-color: #1a1a1a;
+            border-left: 4px solid #4a5568; /* Muted border */
+            color: #d1d5db;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            max-width: 56rem;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            text-align: center; /* Centered text */
         }
-        li {
-            margin-bottom: 10px;
-            padding-left: 5px; /* Adjust spacing for emoji bullet */
+        .info-box-text {
+            color: #d1d5db;
+            font-size: 1rem;
+            line-height: 1.5rem;
+            margin-top: 0.25rem;
+            text-align: left; /* Keep paragraphs left-aligned */
         }
-        .details {
-            background-color: #fff9fb; /* Very light pink background */
-            border: 1px solid #f7e0e9; /* Lighter pink border */
-            border-radius: 8px;
-            padding: 18px;
-            margin-bottom: 25px;
-            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+
+        /* --- Grid Layouts --- */
+        .grid-main {
+            display: grid;
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+            gap: 1.5rem;
+            max-width: 72rem;
+            margin-left: auto;
+            margin-right: auto;
         }
-        .details p {
-            margin: 0;
-            padding: 5px 0;
-            color: #555;
+
+        /* --- Protocol Card Content --- */
+        .card-title {
+            font-size: 1.5rem;
+            line-height: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
         }
-        .details p strong {
-            color: #d1507f; /* Highlight strong text in pink */
+        .card-phase {
+            color: #9ca3af;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            margin-bottom: 0.5rem;
+            margin-top: 1rem; /* Added margin top for spacing */
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 25px;
+        .card-text {
+            color: #d1d5db;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
         }
-        th, td {
-            border: 1px solid #fceef3; /* Very light pink border for table */
-            padding: 14px;
+        .detail-list {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 0.5rem;
             text-align: left;
         }
-        th {
-            background-color: #fde6ee; /* Light pink background for table headers */
-            font-weight: bold;
-            color: #5a2c41; /* Darker pink for header text */
+        .detail-list li {
+            position: relative;
+            padding-left: 1.5rem; /* space for bullet */
+            margin-top: 0.25rem;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
         }
-        tr:nth-child(even) {
-            background-color: #fef8fa; /* Alternate row background for readability */
+        .detail-list li::before {
+            content: '>';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #6b7280; /* muted accent */
+            font-weight: 700;
         }
+        .detail-list-nested {
+             padding-left: 1.5rem; /* Indent nested lists */
+             margin-top: 0.5rem;
+        }
+        .alert-box-card {
+            background-color: rgba(220, 38, 38, 0.1);
+            border-left: 4px solid #DC2626;
+            padding: 0.75rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 0.375rem;
+            text-align: left;
+        }
+        .alert-box-card p {
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            font-weight: 700;
+            color: #F87171;
+            margin: 0;
+        }
+
+        /* --- Footer Card --- */
+        .footer-card-container, .supplemental-card-container {
+            max-width: 72rem; /* Full grid width */
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 1.5rem;
+        }
+        .mission-day-card {
+            text-align: center; /* Centered text */
+            border-left: 4px solid #8B5CF6; /* Violet border */
+            background-image: linear-gradient(rgba(139, 92, 246, 0.05), rgba(139, 92, 246, 0.05)); /* Faint violet bg */
+        }
+
+        /* --- Responsive Media Queries --- */
+        @media (min-width: 768px) {
+            body {
+                padding: 2rem;
+            }
+            .header-title {
+                font-size: 3rem;
+                line-height: 1;
+            }
+            .header-subtitle {
+                font-size: 1.125rem;
+                line-height: 1.75rem;
+            }
+            .grid-main {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .grid-main {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <h1>Japan Itinerary: Whisky, Anime & Nightlife</h1>
-        </header>
-        
-        <div class="content">
+    <header class="header-main">
+        <div class="header-box">
+            <h1 class="header-title hero-accent-text">
+                <span class="header-title-span">10k Race Week</span> Taper Plan
+            </h1>
+            <p class="header-subtitle">November 1 - November 7</p>
+        </div>
+    </header>
 
-            <h2>Base 1: Tokyo</h2>
-            <div class="details">
-                <p><strong>Dates:</strong> Nov 10–18 (8 nights)</p>
-                <p><strong>Hotel:</strong> $1174 (Booked)</p>
-                <p><strong>Primary Stay Area:</strong> Shinjuku, Ikebukuro, or Akihabara</p>
-            </div>
+    
+    <div class="info-box-main">
+        <p class="info-box-text" style="text-align: center;">
+            This is it. The mission is no longer about training. It is 100% about healing, resting, and arriving at the start line fresh. We are shutting down all high-intensity work.
+        </p>
+    </div>
 
-            <h3>Interests</h3>
-            <ul>
-                <li>Anime</li>
-                <li>Bars & Nightlife</li>
-                <li>Whisky day trips</li>
-                <li>Akihabara</li>
-            </ul>
+    
+    <div class="grid-main">
 
-            <h3>Suggested Highlights</h3>
-            <ul>
-                <li><strong>Nightlife:</strong> Shibuya, Shinjuku, and Golden Gai for bars and food</li>
-                <li><strong>Anime:</strong> Akihabara (Anime stores, arcades, figure shops)</li>
-                <li><strong>Sights:</strong> TeamLabs Planets, Odaiba, Nakano Broadway</li>
-                <li><strong>Food:</strong> Ramen Street at Tokyo Station, izakayas in Koenji or Shimokitazawa</li>
-            </ul>
+        <div class="protocol-card accent-border">
+            <h2 class="card-title accent-text">
+                SATURDAY:<br>NOV 1 (Tomorrow)
+            </h2>
+            <div class="nightwing-divider"></div>
 
-            <h3>Whisky & Drink-focused</h3>
-            <ul>
-                <li>Day trip to Kirin Fuji-Gotemba Distillery (Mt. Fuji area)</li>
-                <li>Day trip to Hakushu Distillery (Yamanashi, forest distillery)</li>
-                <li>Optional: Nikka Miyagikyo (Sendai, longer trip)</li>
-            </ul>
-
-            <h2>Base 2: Kyoto / Osaka</h2>
-            <div class="details">
-                <p><strong>Dates:</strong> Nov 18–25 (7 nights)</p>
-                <p><strong>Hotel:</strong> $892 (Booked)</p>
-                <p><strong>Primary Stay Area:</strong> Gion or near Kyoto Station</p>
-            </div>
-
-            <h3>Interests</h3>
-            <ul>
-                <li>Whisky</li>
-                <li>Temples & Autumn leaves</li>
-                <li>Traditional Japan</li>
-                <li>Osaka nightlife</li>
-            </ul>
-
-            <h3>Suggested Day Trips</h3>
-            <ul>
-                <li>Yamazaki Distillery (20–30 min from Kyoto)</li>
-                <li>Osaka (Dotonbori food scene, Nipponbashi anime area)</li>
-                <li>Nara (deer, Todai-ji)</li>
-                <li>Kobe (beef, sake brewery tours)</li>
-                <li>Uji (matcha + temples)</li>
-            </ul>
+            <p class="card-phase">Main Activity</p>
+            <p class="card-text">20-30 minutes of very easy rowing or cycling.</p>
             
-            <h3>Drinks</h3>
-            <ul>
-                <li>Pontocho alley for cocktails</li>
-                <li>Kyoto whisky bars</li>
-                <li>Bar-hopping in Osaka</li>
-            </ul>
+            <p class="card-phase">Coach's Note</p>
+            <p class="card-text">Keep your heart rate low (Zone 1/Light). The only goal is to pump fresh, oxygenated blood into your legs to flush out waste and inflammation. This is not a workout.</p>
 
-            <h2>Base 3: Sapporo</h2>
-            <div class="details">
-                <p><strong>Dates:</strong> Nov 25–30 (5 nights)</p>
-                <p><strong>Hotel:</strong> $761 (Booked)</p>
-                <p><strong>Primary Stay Area:</strong> Susukino (for nightlife) or Odori Park area</p>
-            </div>
+            <p class="card-phase">Daily Protocol</p>
+            <p class="card-text">Perform your full Calf & Shin Release protocol in the evening.</p>
+        </div>
 
-            <h3>Interests</h3>
-            <ul>
-                <li>Whisky</li>
-                <li>Winter food</li>
-                <li>Local bars</li>
-                <li>Snow vibes</li>
-            </ul>
+        <div class="protocol-card accent-border">
+            <h2 class="card-title accent-text">
+                SUNDAY:<br>NOV 2
+            </h2>
+            <div class="nightwing-divider"></div>
 
-            <h3>Highlights</h3>
-            <ul>
-                <li>Day trip to Nikka Yoichi Distillery (1 hr train)</li>
-                <li>Visit Otaru (historic canal town, seafood)</li>
-                <li>Mt. Moiwa Ropeway (night views over snowy city)</li>
-                <li>Sapporo Beer Museum & Beer Hall</li>
-                <li>Explore Susukino nightlife (bars, whisky lounges, ramen alley)</li>
-            </ul>
-
-            <h3>Food</h3>
-            <ul>
-                <li>Soup curry</li>
-                <li>Miso ramen</li>
-                <li>Snow crab</li>
-                <li>Jingisukan (grilled lamb)</li>
-            </ul>
-
-            <h2>Travel Plan</h2>
+            <p class="card-phase">Main Activity</p>
+            <p class="card-text">Full Rest.</p>
             
-            <h3>Travel Between Bases</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Segment</th>
-                        <th>How</th>
-                        <th>Notes</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Tokyo → Osaka</td>
-                        <td>Shinkansen (2.5 hrs)</td>
-                        <td>Covered by JR Pass</td>
-                    </tr>
-                    <tr>
-                        <td>Osaka → Sapporo</td>
-                        <td>Flight (2 hrs)</td>
-                        <td>Fly from Itami/Kansai to CTS</td>
-                    </tr>
-                    <tr>
-                        <td>Sapporo → Tokyo</td>
-                        <td>Flight (1.5 hrs)</td>
-                        <td>For return flight home</td>
-                    </tr>
-                </tbody>
-            </table>
+            <p class="card-phase">Coach's Note</p>
+            <p class="card-text">"Rest" is the activity. Your body is working hard to repair your shins and calves. Don't add any stress.</p>
 
-            <h3>Flights</h3>
-            <ul>
-                <li><strong>Osaka - Sapporo:</strong> Roughly $150. Use Peach, Jetstar, or ANA.</li>
-                <li><strong>Sapporo - Tokyo:</strong> Return flight to Narita before flying home.</li>
+            <p class="card-phase">Daily Protocol</p>
+            <p class="card-text">Perform your full Calf & Shin Release protocol (foam rolling, stretching). Focus on hydration.</p>
+        </div>
+
+        <div class="protocol-card accent-border">
+            <h2 class="card-title accent-text">
+                MONDAY:<br>NOV 3
+            </h2>
+            <div class="nightwing-divider"></div>
+
+            <p class="card-phase">Main Activity</p>
+            <p class="card-text">15-20 min Bodyweight Stability.</p>
+            
+            <p class="card-phase">Your Plan</p>
+            <ul class="detail-list">
+                <li>1-2 sets of Glute Bridges (x15)</li>
+                <li>Clamshells (x15/side)</li>
+                <li>Bird-dogs (x10/side)</li>
+                <li>Planks (3x 45-60 sec)</li>
             </ul>
 
-            <h3>JR Pass</h3>
-            <ul>
-                <li>Get a 7-day pass, activate from Nov 10–17 for Tokyo–Kyoto and local day trips.</li>
+            <p class="card-phase">Coach's Note</p>
+            <p class="card-text">This is not a gym session. It's just about "waking up" your glutes and core so they're ready to support you on race day. Do not push to failure.</p>
+
+            <p class="card-phase">Daily Protocol</p>
+            <p class="card-text">Perform your full Calf & Shin Release protocol.</p>
+        </div>
+
+        <div class="protocol-card accent-border">
+            <h2 class="card-title accent-text">
+                TUESDAY:<br>NOV 4
+            </h2>
+            <div class="nightwing-divider"></div>
+
+            <p class="card-phase">Main Activity</p>
+            <p class="card-text">2-3 km Run (Max 20 minutes) on a flat surface.</p>
+            
+            <p class="card-phase">Coach's Note</p>
+            <p class="card-text">Perform a 5-min dynamic warm-up first (leg swings, ankle circles). This run is purely to keep your legs feeling fresh and remind your body of the running motion. Stick to your easy pace (8:00/km+).</p>
+
+            <p class="card-phase">Daily Protocol</p>
+            <p class="card-text">This is a key day. Do your stretches and foam rolling after this run.</p>
+        </div>
+
+        <div class="protocol-card accent-border">
+            <h2 class="card-title accent-text">
+                WEDNESDAY:<br>NOV 5 (2 Days Out)
+            </h2>
+            <div class="nightwing-divider"></div>
+
+            <p class="card-phase">Main Activity</p>
+            <p class="card-text">Full Rest.</p>
+
+            <p class="card-phase">Coach's Note</p>
+            <p class="card-text">Start to gently increase your carbohydrate intake. This is not a massive pasta binge. Just focus on making carbs (rice, potatoes, bread, fruit) a larger portion of your normal-sized meals.</p>
+
+            <p class="card-phase">Daily Protocol</p>
+            <p class="card-text">Perform your full Calf & Shin Release protocol. Hydration is critical.</p>
+        </div>
+
+        <div class="protocol-card accent-border">
+            <h2 class="card-title accent-text">
+                THURSDAY:<br>NOV 6 (Race Eve)
+            </h2>
+            <div class="nightwing-divider"></div>
+
+            <p class="card-phase">Main Activity</p>
+            <p class="card-text">Full Rest. A 15-20 minute gentle walk is optional if you feel very stiff.</p>
+
+            <p class="card-phase">Coach's Note</p>
+            <p class="card-text">This is your main carb-loading and hydration day. Lay out your race clothes, watch, etc., for tomorrow.</p>
+            
+            <p class="card-phase">Mental Prep</p>
+            <p class="card-text">Visualize the race. See yourself running smooth, controlling your pace, and crossing the finish line feeling strong.</p>
+
+            <p class="card-phase">Daily Protocol</Dail>
+            <p class="card-text">Perform a gentle version of your stretches and foam rolling. Don't be aggressive.</p>
+        </div>
+
+    </div>
+
+    
+    <div class="footer-card-container">
+        <div class="protocol-card mission-day-card">
+            <h2 class="card-title text-violet">
+                FRIDAY:<br>NOV 7 (MISSION DAY)
+            </h2>
+            <div class="nightwing-divider"></div>
+            
+            <p class="card-phase">Main Activity</p>
+            <p class="card-text">Execute the mission.</p>
+            
+            <p class="card-phase">Coach's Note</p>
+            <p class="info-box-text" style="font-size: 1.125rem; text-align: center;">Wake up, eat your planned pre-race breakfast, and do a 5-10 minute dynamic warm-up before you start. Trust your cardio. Run your own race.</p>
+        </div>
+    </div>
+
+    <div class="supplemental-card-container">
+        <div class="protocol-card accent-border" style="text-align: left; height: auto;">
+            <h2 class="card-title hero-accent-text" style="text-align: center;">
+                Daily Taper Protocol (Nov 1 - Nov 6)
+            </h2>
+            <div class="nightwing-divider"></div>
+
+            <p class="card-phase hero-accent-text" style="font-size: 1rem; margin-top: 0;">Calf & Shin Release (Mandatory)</p>
+            <ul class="detail-list">
+                <li><span class="font-bold">Foam Roll Calves:</span> 2-3 minutes on each leg (both your main calf and your shin muscle). When you find a sore spot, pause on it for 30 seconds. This is your #1 tool against shin splints.</li>
+                <li><span class="font-bold">Calf Stretches:</span> 2 sets of 30-45 seconds for each stretch:
+                    <ul class="detail-list detail-list-nested">
+                        <li>Straight-Knee Wall Stretch (Upper Calf)</li>
+                        <li>Bent-Knee Wall Stretch (Lower Calf / Soleus)</li>
+                    </ul>
+                </li>
+                <li><span class="font-bold">Foot Roll:</span> 1-2 minutes of rolling the bottom of your right foot on a golf ball, lacrosse ball, or frozen bottle.</li>
+            </ul>
+            <div class="nightwing-divider" style="margin: 1.5rem 0;"></div>
+
+            <p class="card-phase hero-accent-text" style="font-size: 1rem;">Hydration</p>
+            <ul class="detail-list">
+                <li>This is now a primary task. You must be fully hydrated every day, not just the day before. This is essential for muscle repair. Aim for consistently pale yellow urine.</li>
+            </ul>
+            <div class="nightwing-divider" style="margin: 1.5rem 0;"></div>
+
+            <p class="card-phase hero-accent-text" style="font-size: 1rem;">Sleep</p>
+            <ul class="detail-list">
+                <li>This is your most powerful recovery tool. Prioritize 7-8+ hours. This is when your body actually heals the micro-tears.</li>
             </ul>
 
+        </div>
+    </div>
+
+    <div class="supplemental-card-container">
+        <div class="protocol-card accent-border" style="text-align: left; height: auto;">
+            <h2 class="card-title hero-accent-text" style="text-align: center;">
+                Exercises to Support Running Goal
+            </h2>
+            <div class="nightwing-divider"></div>
+
+            <p class="card-phase hero-accent-text" style="font-size: 1rem; margin-top: 0;">Single-Leg Romanian Deadlift (RDL)</p>
+            <ul class="detail-list">
+                <li><span class="font-bold">Why:</span> This is the ultimate exercise for runners. It builds hamstring and glute strength, but more importantly, it teaches balance and stability on one leg. This directly protects your knee from collapsing inward.</li>
+                <li><span class="font-bold">How:</span> Start with just your bodyweight, focusing on keeping your hips level and your back flat.</li>
+            </ul>
+            <div class="nightwing-divider" style="margin: 1.5rem 0;"></div>
+
+            <p class="card-phase hero-accent-text" style="font-size: 1rem;">Weighted Calf Raises (Both Straight-Leg & Bent-Knee)</p>
+            <ul class="detail-list">
+                <li><span class="font-bold">Why:</span> Your calves (Gastroc and Soleus) are your primary shock absorbers and springs. Today's run proved they are a weak link.</li>
+                <ul class="detail-list detail-list-nested">
+                    <li><span class="font-bold">How (Straight-Leg):</span> Standard calf raises, holding dumbbells. This hits the upper calf (Gastrocnemius).</li>
+                    <li><span class="font-bold">How (Bent-Knee):</span> Use a seated calf raise machine, or sit on a bench with a dumbbell on your knee. This specifically targets the Soleus, which is the muscle you likely inflamed today and is a key culprit in shin splints.</li>
+                </ul>
+            </ul>
+            <div class="nightwing-divider" style="margin: 1.5rem 0;"></div>
+
+            <p class="card-phase hero-accent-text" style="font-size: 1rem;">Tibialis Raises</p>
+            <ul class="detail-list">
+                <li><span class="font-bold">Why:</span> This directly strengthens the Tibialis Anterior, the muscle on the front of your shin. Stronger shin muscles = better-protected shins.</li>
+                <li><span class="font-bold">How:</span> Stand with your back against a wall. Put your feet out about a foot. Keeping your legs straight, pull your toes up off the floor as high as your can. Hold, then slowly lower.</li>
+            </ul>
+            <div class="nightwing-divider" style="margin: 1.5rem 0;"></div>
+
+            <p class="card-phase hero-accent-text" style="font-size: 1rem;">Lateral Band Walks (Mini-Band)</p>
+            <ul class="detail-list">
+                <li><span class="font-bold">Why:</span> This targets your hip abductors (like the Gluteus Medius). These muscles stop your hips from "dropping" and prevent your knee from caving in, which is critical given your knee history.</li>
+                <li><span class="font-bold">How:</span> Place a resistance band around your ankles or just above your knees. Get into a slight squat and take 15-20 slow, controlled steps sideways, then return.</li>
+            </ul>
+
+        </div>
+    </div>
+
+
+    <div class="info-box-main" style="margin-top: 3rem; border-left-color: #8B5CF6; text-align: center;">
+        <h2 class="card-title hero-accent-text" style="text-align: center; margin-bottom: 0;">
+            The New Mission:<br>3-Week "Japan Maintenance Plan"
+        </h2>
+        <p class="header-subtitle">(Nov 10 - Dec 1)</p>
+        <div class="nightwing-divider"></div>
+        <p class="info-box-text">
+            You are 100% correct to assume you'll be active. 15-20k steps a day is a significant amount of "time on feet." That is not a "rest" holiday; that's an active holiday. This is great. That walking will do a beautiful job of maintaining your aerobic base.
+        </p>
+        <p class="info-box-text" style="margin-top: 1rem;">
+            Our goal for these three weeks is NOT to build new fitness. The goal is 100% Active Recovery, Injury Management, and Maintenance. Your 3 runs per week are just to "keep the engine oiled" and maintain the specific feel of running. The real work will be the 15-20k steps.
+        </p>
+    </div>
+
+    <div class="grid-main">
+
+        <div class="protocol-card accent-border">
+            <h2 class="card-title accent-text">
+                WEEK 1:<br>Nov 10 - 16
+            </h2>
+            <div class="nightwing-divider"></div>
+
+            <p class="card-phase">Theme</p>
+            <p class="card-text">Post-10k Recovery</p>
+            
+            <p class="card-phase">Total Runs</p>
+            <p class="card-text">One (maximum two, if you feel amazing).</p>
+
+            <p class="card-phase">Run 1 (Do this around Thurs/Fri, Nov 13/14)</p>
+            <ul class="detail-list">
+                <li><span class="font-bold">Distance:</span> 3-4 km</li>
+                <li><span class="font-bold">Pace:</span> Easy, "sightseeing" pace. No watch-checking.</li>
+            </ul>
+
+            <p class="card-phase">Coach's Note</p>
+            <p class="card-text">Your shins, knees, and calves will be talking to you after the 10k and the sudden increase in walking. Listen to them. If you feel any of the old pain, skip the run entirely.</p>
+        </div>
+
+        <div class="protocol-card accent-border">
+            <h2 class="card-title accent-text">
+                WEEK 2:<br>Nov 17 - 23
+            </h2>
+            <div class="nightwing-divider"></div>
+
+            <p class="card-phase">Theme</p>
+            <p class="card-text">Maintenance</p>
+            
+            <p class="card-phase">Total Runs</p>
+            <p class="card-text">Three. Spread them out. Do not run two days in a row.</p>
+
+            <p class="card-phase">Run Plan</p>
+            <ul class="detail-list">
+                <li><span class="font-bold">Run 1 (e.g., Monday):</span> 4 km (Easy pace)</li>
+                <li><span class="font-bold">Run 2 (e.g., Wednesday):</span> 5 km (Easy pace)</li>
+                <li><span class="font-bold">Run 3 (e.g., Friday/Saturday):</span> 4 km (Easy pace)</li>
+            </ul>
+        </div>
+
+        <div class="protocol-card accent-border">
+            <h2 class="card-title accent-text">
+                WEEK 3:<br>Nov 24 - Dec 1
+            </h2>
+            <div class="nightwing-divider"></div>
+
+            <p class="card-phase">Theme</p>
+            <p class="card-text">Maintenance</p>
+            
+            <p class="card-phase">Total Runs</p>
+            <p class="card-text">Three. Spread them out. No back-to-back run days.</p>
+
+            <p class="card-phase">Run Plan</p>
+            <ul class="detail-list">
+                <li><span class="font-bold">Run 1:</span> 4-5 km (Easy pace)</li>
+                <li><span class="font-bold">Run 2:</span> 5-6 km (This is your "long run." Keep it easy.)</li>
+                <li><span class="font-bold">Run 3:</span> 4-5 km (Easy pace)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="supplemental-card-container">
+        <div class="protocol-card accent-border" style="text-align: left; height: auto; border-left-color: #F87171;"> <h2 class="card-title hero-accent-text" style="text-align: center;">
+                The Golden Rule for This Entire Trip
+            </h2>
+            <div class="nightwing-divider"></div>
+            <p class="card-text" style="font-size: 1rem; line-height: 1.5rem; margin-bottom: 1rem;">
+                Your 15-20k steps of walking <span class="font-bold">COUNTS</span> as your workout.
+            </p>
+            <p class="card-text" style="font-size: 1rem; line-height: 1.5rem; margin-bottom: 1rem;">
+                On any day you feel beaten up, tired, or your shins/knees are sore from the pavement, the run is the first thing you cancel. Don't force it. Skipping a run to let your legs recover from 20,000 steps is not a failure; it's the smart move.
+            </p>
+            <p class="card-text" style="font-size: 1rem; line-height: 1.5rem;">
+                Your most important "exercise" in Japan will be the <span class="font-bold hero-accent-text">Daily Calf & Shin Release Protocol</span> we discussed. You must do this in your hotel room every night to manage the inflammation from all that walking.
+            </WELCOME>
         </div>
     </div>
 
